@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Förster Sandstrahlarbeiten – Sandstrahlen, Feuerverzinken, Glasperlenstrahlen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #e8651a;
+            --orange-light: #ff8a3d;
+            --orange-dark: #c4510e;
+            --dark: #1a1a2e;
+            --dark-light: #2d2d44;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 50px -5px rgba(0,0,0,0.15);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            background: var(--gray-50);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ── NAVIGATION ── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--gray-900);
+        }
+
+        .nav-brand-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .nav-brand-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-brand-text span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--orange);
+            background: rgba(232, 101, 26, 0.08);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--orange), var(--orange-light)) !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(232, 101, 26, 0.4) !important;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light)) !important;
+        }
+
+        .nav-social {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 4px;
+        }
+
+        .nav-social a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: var(--gray-500);
+            transition: all 0.2s;
+        }
+
+        .nav-social a:hover {
+            color: #1877f2;
+            background: rgba(24, 119, 242, 0.08);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(160deg, var(--dark) 0%, var(--dark-light) 50%, #3a2a1a 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(232,101,26,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(232,101,26,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-40px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(232,101,26,0.15);
+            color: var(--orange-light);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+            border: 1px solid rgba(232,101,26,0.25);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--gray-400);
+            max-width: 560px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            color: white;
+            box-shadow: 0 4px 15px rgba(232, 101, 26, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(232, 101, 26, 0.45);
+        }
+
+        .btn-outline {
+            background: rgba(255,255,255,0.08);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.35);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            margin-top: 4px;
+        }
+
+        /* ── SECTION STYLES ── */
+        section {
+            padding: 100px 24px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--orange);
+            border-radius: 2px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 800;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* ── SERVICES / LEISTUNGEN ── */
+        #leistungen {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+
+        .service-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--orange), var(--orange-light));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(232,101,26,0.1), rgba(232,101,26,0.05));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--gray-500);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .service-card ul li {
+            padding: 6px 0;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .service-card ul li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            min-width: 6px;
+            background: var(--orange);
+            border-radius: 50%;
+            margin-top: 2px;
+        }
+
+        /* ── ABOUT / ÜBER UNS ── */
+        #ueber {
+            background: var(--gray-50);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-top: 48px;
+        }
+
+        .about-image {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-text {
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: 800;
+            opacity: 0.15;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(232,101,26,0.2), transparent);
+        }
+
+        .about-content h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .about-feature::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            background: rgba(232,101,26,0.1);
+            color: var(--orange);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* ── EXAMPLES ── */
+        #beispiele {
+            background: var(--white);
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .example-group {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .example-group h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .example-group h4 span {
+            font-size: 1.2rem;
+        }
+
+        .example-group ul {
+            list-style: none;
+        }
+
+        .example-group ul li {
+            padding: 8px 0;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .example-group ul li:last-child {
+            border-bottom: none;
+        }
+
+        .example-group ul li::before {
+            content: '→';
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        /* ── CONTACT / KONTAKT ── */
+        #kontakt {
+            background: var(--gray-50);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(232,101,26,0.1), rgba(232,101,26,0.05));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.4rem;
+        }
+
+        .contact-card h4 {
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .contact-card a {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── HOURS BANNER ── */
+        .hours-banner {
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            color: var(--white);
+            padding: 48px;
+            border-radius: var(--radius-lg);
+            margin-top: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hours-banner h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hours-banner p {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+        }
+
+        .hours-details {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hours-item {
+            text-align: center;
+        }
+
+        .hours-item-label {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .hours-item-value {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        /* ── MAP ── */
+        .map-section {
+            margin-top: 48px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            display: block;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: 64px 24px 32px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer h4 {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange-light);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 28px;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom a {
+            color: var(--gray-400);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--orange-light);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 16px 24px;
+                border-bottom: 1px solid var(--gray-200);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 32px;
+                flex-wrap: wrap;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hours-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ── GALLERY / VORHER-NACHHER ── */
+        #galerie {
+            background: var(--white);
+        }
+
+        .gallery-filters {
+            display: flex;
+            gap: 8px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-filter-btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--gray-300);
+            background: var(--white);
+            color: var(--gray-600);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .gallery-filter-btn:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        .gallery-filter-btn.active {
+            background: var(--orange);
+            color: white;
+            border-color: var(--orange);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-pair {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-pair:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .gallery-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+        }
+
+        .gallery-images::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--white);
+            z-index: 1;
+        }
+
+        .gallery-img-wrap {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-img-wrap img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .gallery-img-wrap:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-img-label {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            z-index: 2;
+        }
+
+        .gallery-img-label.vorher {
+            background: rgba(220, 53, 69, 0.85);
+            color: white;
+        }
+
+        .gallery-img-label.nachher {
+            background: rgba(40, 167, 69, 0.85);
+            color: white;
+        }
+
+        .gallery-pair-caption {
+            padding: 14px 16px;
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .lightbox-prev { left: 24px; }
+        .lightbox-next { right: 24px; }
+
+        .gallery-show-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .gallery-show-more .btn {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+        }
+
+        .gallery-show-more .btn:hover {
+            background: var(--gray-200);
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-brand">
+            <div class="nav-brand-icon">F</div>
+            <div class="nav-brand-text">Förster <span>Sandstrahlarbeiten</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#beispiele">Anwendungen</a></li>
+            <li><a href="#galerie">Vorher/Nachher</a></li>
+            <li><a href="#kontakt">Anfahrt</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+        </ul>
+        <div class="nav-social">
+            <a href="https://www.facebook.com/pages/F%C3%B6rster-Sandstrahlarbeiten/167663406646462" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-container">
+        <div class="hero-badge">Ihr Fachbetrieb in Frankenblick</div>
+        <h1>Professionelle <span>Sandstrahl&shy;arbeiten</span> für jedes Material</h1>
+        <p class="hero-subtitle">
+            Sandstrahlen, Feuerverzinken und Glasperlenstrahlen – wir entfernen Rost, Farbe und Beschichtungen
+            von nahezu jeder Oberfläche. Zuverlässig, gründlich und nach Ihren Wünschen.
+        </p>
+        <div class="hero-actions">
+            <a href="tel:+491749311598" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                Jetzt anrufen
+            </a>
+            <a href="#leistungen" class="btn btn-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                Leistungen ansehen
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div>
+                <div class="hero-stat-number">Seit 2015</div>
+                <div class="hero-stat-label">Erfahrung im Sandstrahlen</div>
+            </div>
+            <div>
+                <div class="hero-stat-number">Bis 2t</div>
+                <div class="hero-stat-label">Container & Mulden</div>
+            </div>
+            <div>
+                <div class="hero-stat-number">100%</div>
+                <div class="hero-stat-label">Individuelle Beratung</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+    <div class="section-container">
+        <div class="section-label">Unsere Leistungen</div>
+        <h2 class="section-title">Was wir für Sie tun können</h2>
+        <p class="section-subtitle">Drei Kernbereiche – ein Ziel: Ihre Oberflächen in Bestform zu bringen.</p>
+
+        <div class="services-grid">
+            <!-- Sandstrahlen -->
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Sandstrahlen</h3>
+                <p>Verunreinigungen, Ablagerungen und Beschichtungen von verschiedenen Oberflächen entfernen. Je nach Untergrund setzen wir unterschiedliche Strahlmittel ein – metallische Strahlmittel, Korund, Glasperlen und mehr.</p>
+                <ul>
+                    <li>Rost, Farbe & Zunder entfernen</li>
+                    <li>Auch an schwer erreichbaren Stellen</li>
+                    <li>Vorbereitung für Korrosionsschutz</li>
+                </ul>
+            </div>
+
+            <!-- Feuerverzinken -->
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Feuerverzinken</h3>
+                <p>Langlebiger Korrosionsschutz für Ihre Metallteile. Nach dem Sandstrahlen wird die Oberfläche durch Feuerverzinken dauerhaft gegen Witterung und Verschleiß geschützt.</p>
+                <ul>
+                    <li>Dauerhafter Schutz vor Korrosion</li>
+                    <li>Ideal für Außenanwendungen</li>
+                    <li>Kombinierbar mit Sandstrahlen</li>
+                </ul>
+            </div>
+
+            <!-- Glasperlenstrahlen -->
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Glasperlenstrahlen</h3>
+                <p>Edelstahlteile werden mit verschiedenen Glasperlenarten und unterschiedlichem Druck abgestrahlt. Das Ergebnis: eine saubere und absolut feine Oberfläche – auf Wunsch mit Edelstahlreiniger nachbehandelt.</p>
+                <ul>
+                    <li>Feinste Oberflächenqualität</li>
+                    <li>Für Edelstahl, Messing & mehr</li>
+                    <li>Optionale Nachbehandlung</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANWENDUNGSBEISPIELE -->
+<section id="beispiele">
+    <div class="section-container">
+        <div class="section-label">Anwendungsbeispiele</div>
+        <h2 class="section-title">Was wir bearbeiten</h2>
+        <p class="section-subtitle">Von der Stahlkonstruktion bis zum antiken Möbelstück – unsere Expertise deckt ein breites Spektrum ab.</p>
+
+        <div class="examples-grid">
+            <div class="example-group">
+                <h4><span>🔩</span> Sandstrahlen</h4>
+                <ul>
+                    <li>Stahlbaukonstruktionen sowie metallische Groß- und Kleinteile</li>
+                    <li>Fahrzeugteile aller Art (Fahrgestell, Karosserie, Felgen, Anbauteile uvm.)</li>
+                    <li>Geräte aus dem privaten Bereich (Werkzeuge, Gartenzaun, Heizkörper, historische Stücke)</li>
+                    <li>Container und Mulden (derzeit bis 2t, in Zukunft bis 5t möglich)</li>
+                </ul>
+            </div>
+            <div class="example-group">
+                <h4><span>💎</span> Glasperlenstrahlen</h4>
+                <ul>
+                    <li>Sämtliche Edelstahlteile und Konstruktionen</li>
+                    <li>Kfz-Teile aller Art (Motor- und Karosserieteile, Zubehör uvm.)</li>
+                    <li>Messingteile (werden gereinigt und sehen aus wie neu)</li>
+                    <li>Holzteile (alte Möbel usw.) nach vorheriger Begutachtung</li>
+                </ul>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 32px; color: var(--gray-500); font-size: 0.95rem;">
+            Sonderwünsche? Sprechen Sie uns gerne an – wir finden eine Lösung!
+        </p>
+    </div>
+</section>
+
+<!-- GALERIE / VORHER-NACHHER -->
+<section id="galerie">
+    <div class="section-container">
+        <div class="section-label">Vorher / Nachher</div>
+        <h2 class="section-title">Unsere Arbeit in Bildern</h2>
+        <p class="section-subtitle">Überzeugen Sie sich selbst – hier sehen Sie den Unterschied, den professionelles Sandstrahlen und Glasperlenstrahlen ausmacht.</p>
+
+        <div class="gallery-grid" id="galleryGrid">
+        </div>
+
+        <div class="gallery-show-more" id="showMoreWrap">
+            <button class="btn" id="showMoreBtn" onclick="showMoreImages()">Mehr Bilder anzeigen</button>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); navigateLightbox(-1)">&#8249;</button>
+    <img id="lightboxImg" src="" alt="Vollbild">
+    <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); navigateLightbox(1)">&#8250;</button>
+</div>
+
+<!-- KONTAKT & ANFAHRT -->
+<section id="kontakt">
+    <div class="section-container">
+        <div class="section-label">Kontakt & Anfahrt</div>
+        <h2 class="section-title">So erreichen Sie uns</h2>
+        <p class="section-subtitle">Wir freuen uns auf Ihre Anfrage – telefonisch, per Mail oder persönlich vor Ort.</p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h4>Anschrift</h4>
+                <p>
+                    Förster Sandstrahlarbeiten<br>
+                    Gewerbepark 10<br>
+                    96528 Frankenblick<br>
+                    OT Rauenstein
+                </p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h4>Telefon</h4>
+                <p>
+                    Tel: <a href="tel:+493676687844">(+49) 36766 / 87844</a><br>
+                    Fax: (+49) 3222 / 4389061<br>
+                    Mobil: <a href="tel:+491749311598">(+49) 174 / 9311598</a>
+                </p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h4>E-Mail</h4>
+                <p>
+                    <a href="mailto:info@foerster-sandstrahlarbeiten.de">info@foerster-sandstrahlarbeiten.de</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Geschäftszeiten Banner -->
+        <div class="hours-banner">
+            <div>
+                <h3>Geschäftszeiten</h3>
+                <p>Montag bis Freitag – oder nach Vereinbarung</p>
+            </div>
+            <div class="hours-details">
+                <div class="hours-item">
+                    <div class="hours-item-label">Öffnungszeiten</div>
+                    <div class="hours-item-value">12:30 – 18:00 Uhr</div>
+                </div>
+                <div class="hours-item">
+                    <div class="hours-item-label">Anlieferung & Abholung</div>
+                    <div class="hours-item-value">16:00 – 18:00 Uhr</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="map-section">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2546.5!2d11.1469!3d50.4769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a3f5b9d5555555%3A0x1234567890abcdef!2sGewerbepark%2010%2C%2096528%20Frankenblick!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Standort Förster Sandstrahlarbeiten">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Förster Sandstrahlarbeiten</h3>
+                <p>Ihr Spezialist für Sandstrahlen, Feuerverzinken und Glasperlenstrahlen in Frankenblick / Rauenstein. Professionelle Oberflächenbehandlung seit 2015.</p>
+                <a href="https://www.facebook.com/pages/F%C3%B6rster-Sandstrahlarbeiten/167663406646462" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:var(--gray-400);text-decoration:none;font-size:0.9rem;transition:color 0.2s;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                </a>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#beispiele">Anwendungen</a></li>
+                    <li><a href="#galerie">Vorher/Nachher</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Kontakt</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+491749311598">(+49) 174 / 9311598</a></li>
+                    <li><a href="mailto:info@foerster-sandstrahlarbeiten.de">info@foerster-sandstrahlarbeiten.de</a></li>
+                    <li>Gewerbepark 10</li>
+                    <li>96528 Frankenblick</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2015 – 2026 Förster Sandstrahlarbeiten</span>
+            <div class="footer-legal">
+                <a href="impressum.html">Impressum & Datenschutz</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ── GALLERY DATA ──
+    const BASE = 'https://www.foerster-sandstrahlarbeiten.de/picture-gallery';
+    const galleryPairs = [
+        {id:'01', a:'01a.JPG', b:'01b.JPG', label:'Felge'},
+        {id:'02', a:'02a.JPG', b:'02b.JPG', label:'Felge'},
+        {id:'03', a:'03a.JPG', b:'03b.JPG', label:'Tür / Rahmen'},
+        {id:'04', a:'04a.JPG', b:'04b.JPG', label:'Metallteil'},
+        {id:'05', a:'05a.JPG', b:'05b.JPG', label:'Dekoration'},
+        {id:'06', a:'06a.JPG', b:'06b.JPG', label:'Gussteil'},
+        {id:'07', a:'07a.JPG', b:'07b.JPG', label:'Verpackung / Kiste'},
+        {id:'08', a:'08a.JPG', b:'08b.JPG', label:'Karosserieteil'},
+        {id:'09', a:'09a.JPG', b:'09b.JPG', label:'Metallteil'},
+        {id:'10', a:'10a.JPG', b:'10b.JPG', label:'Stahlkonstruktion'},
+        {id:'11', a:'11a.JPG', b:'11b.JPG', label:'Metallteil'},
+        {id:'12', a:'12a.JPG', b:'12b.JPG', label:'Fahrgestell'},
+        {id:'13', a:'13a.JPG', b:'13b.JPG', label:'Gestell'},
+        {id:'14', a:'14a.JPG', b:'14b.JPG', label:'Kotflügel'},
+        {id:'15', a:'15a.jpg', b:'15b.jpg', label:'Treppe / Geländer'},
+        {id:'16', a:'16a.jpg', b:'16b.jpg', label:'Metallteil'},
+        {id:'17', a:'17a.jpg', b:'17b.jpg', label:'Karosserieteil'},
+        {id:'18', a:'18a.jpg', b:'18b.jpg', label:'Gussteil'},
+        {id:'19', a:'19a.jpg', b:'19b.jpg', label:'Blechteil'},
+        {id:'20', a:'20a.jpg', b:'20b.jpg', label:'Metallteil'},
+        {id:'21', a:'21a.jpg', b:'21b.jpg', label:'Gussteil'},
+        {id:'22', a:'22a.jpg', b:'22b.jpg', label:'Scheibe / Rad'},
+        {id:'23', a:'23a.jpg', b:'23b.jpg', label:'Metallteil'},
+        {id:'24', a:'24a.jpg', b:'24b.jpg', label:'Metallteil'},
+        {id:'25', a:'25a.jpg', b:'25b.jpg', label:'Metallteil'},
+        {id:'26', a:'26a.jpg', b:'26b.jpg', label:'Metallteil'},
+        {id:'27', a:'27a.jpg', b:'27b.jpg', label:'Felge'},
+    ];
+
+    let visibleCount = 9;
+    const allLightboxImages = [];
+
+    function renderGallery() {
+        const grid = document.getElementById('galleryGrid');
+        grid.innerHTML = '';
+        allLightboxImages.length = 0;
+
+        const toShow = galleryPairs.slice(0, visibleCount);
+        toShow.forEach((pair, idx) => {
+            const fullA = `${BASE}/pics_1000/${pair.a}`;
+            const fullB = `${BASE}/pics_1000/${pair.b}`;
+            allLightboxImages.push(fullA, fullB);
+
+            const card = document.createElement('div');
+            card.className = 'gallery-pair';
+            card.innerHTML = `
+                <div class="gallery-images">
+                    <div class="gallery-img-wrap" onclick="openLightbox(${idx*2})">
+                        <span class="gallery-img-label vorher">Vorher</span>
+                        <img src="${fullA}" alt="Vorher - ${pair.label}" loading="lazy">
+                    </div>
+                    <div class="gallery-img-wrap" onclick="openLightbox(${idx*2+1})">
+                        <span class="gallery-img-label nachher">Nachher</span>
+                        <img src="${fullB}" alt="Nachher - ${pair.label}" loading="lazy">
+                    </div>
+                </div>
+                <div class="gallery-pair-caption">${pair.label}</div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Animate in
+        grid.querySelectorAll('.gallery-pair').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(24px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        document.getElementById('showMoreWrap').style.display =
+            visibleCount >= galleryPairs.length ? 'none' : 'flex';
+    }
+
+    function showMoreImages() {
+        visibleCount = Math.min(visibleCount + 9, galleryPairs.length);
+        renderGallery();
+    }
+
+    // ── LIGHTBOX ──
+    let currentLightboxIdx = 0;
+
+    function openLightbox(idx) {
+        currentLightboxIdx = idx;
+        document.getElementById('lightboxImg').src = allLightboxImages[idx];
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(dir) {
+        currentLightboxIdx = (currentLightboxIdx + dir + allLightboxImages.length) % allLightboxImages.length;
+        document.getElementById('lightboxImg').src = allLightboxImages[currentLightboxIdx];
+    }
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!document.getElementById('lightbox').classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+
+    // ── NAVBAR ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY + 100;
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+            if (link) {
+                link.classList.toggle('active', scrollY >= top && scrollY < top + height);
+            }
+        });
+    });
+
+    // ── SCROLL ANIMATIONS ──
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .contact-card, .example-group').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+
+    // Init gallery
+    renderGallery();
+</script>
+</body>
+</html>

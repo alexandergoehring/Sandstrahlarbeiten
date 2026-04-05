@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum & Datenschutz – Förster Sandstrahlarbeiten</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --orange: #e8651a;
+            --orange-light: #ff8a3d;
+            --dark: #1a1a2e;
+            --dark-light: #2d2d44;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --radius-lg: 20px;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            background: var(--gray-50);
+            line-height: 1.7;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled { box-shadow: var(--shadow); }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between; height: 72px;
+        }
+
+        .nav-brand {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--gray-900);
+        }
+        .nav-brand-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 800; font-size: 18px;
+        }
+        .nav-brand-text { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; }
+        .nav-brand-text span { color: var(--orange); }
+
+        .nav-links { display: flex; list-style: none; gap: 4px; }
+        .nav-links a {
+            text-decoration: none; color: var(--gray-600); font-weight: 500;
+            font-size: 0.9rem; padding: 8px 16px; border-radius: 8px; transition: all 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--orange); background: rgba(232, 101, 26, 0.08);
+        }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--orange), var(--orange-light)) !important;
+            color: white !important; padding: 10px 20px !important;
+            border-radius: 10px !important; font-weight: 600 !important;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(232, 101, 26, 0.4) !important;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light)) !important;
+        }
+        .nav-social {
+            display: flex; align-items: center; gap: 8px; margin-left: 4px;
+        }
+        .nav-social a {
+            width: 36px; height: 36px; display: flex; align-items: center;
+            justify-content: center; border-radius: 8px; color: var(--gray-500); transition: all 0.2s;
+        }
+        .nav-social a:hover { color: #1877f2; background: rgba(24, 119, 242, 0.08); }
+        .nav-toggle {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            background: none; border: none; padding: 8px;
+        }
+        .nav-toggle span {
+            width: 24px; height: 2px; background: var(--gray-700);
+            border-radius: 2px; transition: all 0.3s;
+        }
+
+        /* ── HERO HEADER ── */
+        .page-hero {
+            padding: 140px 24px 60px;
+            background: linear-gradient(160deg, var(--dark) 0%, var(--dark-light) 50%, #3a2a1a 100%);
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -40%; right: -15%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(232,101,26,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .page-hero-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .page-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--white);
+            letter-spacing: -0.03em; margin-bottom: 12px;
+        }
+        .page-hero h1 span {
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .page-hero p { color: var(--gray-400); font-size: 1.05rem; }
+
+        /* ── CONTENT ── */
+        .legal-content {
+            max-width: 860px; margin: 0 auto; padding: 64px 24px 100px;
+        }
+
+        .legal-nav {
+            display: flex; gap: 8px; margin-bottom: 48px;
+            position: sticky; top: 72px; z-index: 10;
+            background: var(--gray-50); padding: 16px 0;
+        }
+        .legal-nav a {
+            padding: 10px 24px; border-radius: 50px; font-weight: 600;
+            font-size: 0.9rem; text-decoration: none; transition: all 0.2s;
+            border: 1px solid var(--gray-300); color: var(--gray-600); background: var(--white);
+        }
+        .legal-nav a:hover, .legal-nav a.active {
+            background: var(--orange); color: white; border-color: var(--orange);
+        }
+
+        .legal-section {
+            margin-bottom: 64px; scroll-margin-top: 160px;
+        }
+
+        .legal-section-title {
+            font-size: 1.6rem; font-weight: 800; color: var(--gray-900);
+            margin-bottom: 32px; padding-bottom: 16px;
+            border-bottom: 2px solid var(--gray-200);
+            display: flex; align-items: center; gap: 12px;
+        }
+        .legal-section-title::before {
+            content: ''; width: 4px; height: 28px;
+            background: linear-gradient(180deg, var(--orange), var(--orange-light));
+            border-radius: 4px;
+        }
+
+        .legal-block {
+            background: var(--white); border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg); padding: 32px; margin-bottom: 24px;
+        }
+
+        .legal-block h3 {
+            font-size: 1.1rem; font-weight: 700; color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .legal-block p {
+            color: var(--gray-600); font-size: 0.92rem; line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .legal-block p:last-child { margin-bottom: 0; }
+
+        .legal-block a {
+            color: var(--orange); text-decoration: none; word-break: break-all;
+        }
+        .legal-block a:hover { text-decoration: underline; }
+
+        .contact-info-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px;
+        }
+        .contact-info-item {
+            display: flex; align-items: baseline; gap: 8px;
+            font-size: 0.92rem; color: var(--gray-600);
+        }
+        .contact-info-item strong { color: var(--gray-800); min-width: 90px; }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--gray-900); color: var(--gray-400); padding: 40px 24px;
+        }
+        .footer-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 16px;
+        }
+        .footer a { color: var(--gray-400); text-decoration: none; font-size: 0.9rem; }
+        .footer a:hover { color: var(--orange-light); }
+        .footer-links { display: flex; gap: 24px; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none; position: fixed; top: 72px; left: 0; right: 0;
+                background: var(--white); flex-direction: column;
+                padding: 16px 24px; border-bottom: 1px solid var(--gray-200);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .nav-toggle { display: flex; }
+            .contact-info-grid { grid-template-columns: 1fr; }
+            .legal-nav { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-brand-icon">F</div>
+            <div class="nav-brand-text">Förster <span>Sandstrahlarbeiten</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#leistungen">Leistungen</a></li>
+            <li><a href="index.html#beispiele">Anwendungen</a></li>
+            <li><a href="index.html#galerie">Vorher/Nachher</a></li>
+            <li><a href="index.html#kontakt">Anfahrt</a></li>
+            <li><a href="impressum.html" class="active">Impressum</a></li>
+            <li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
+        </ul>
+        <div class="nav-social">
+            <a href="https://www.facebook.com/pages/F%C3%B6rster-Sandstrahlarbeiten/167663406646462" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-container">
+        <h1>Impressum & <span>Datenschutz</span></h1>
+        <p>Rechtliche Informationen und Datenschutzerklärung</p>
+    </div>
+</section>
+
+<!-- CONTENT -->
+<div class="legal-content">
+    <nav class="legal-nav">
+        <a href="#impressum" class="active">Impressum</a>
+        <a href="#haftung">Haftungsausschluss</a>
+        <a href="#datenschutz">Datenschutz</a>
+    </nav>
+
+    <!-- IMPRESSUM -->
+    <div class="legal-section" id="impressum">
+        <h2 class="legal-section-title">Impressum</h2>
+
+        <div class="legal-block">
+            <h3>Angaben gemäß § 5 TMG</h3>
+            <p><strong>Förster Sandstrahlarbeiten</strong><br>
+            Rico Förster<br>
+            Gewerbepark 10<br>
+            OT Rauenstein<br>
+            96528 Frankenblick</p>
+        </div>
+
+        <div class="legal-block">
+            <h3>Kontakt</h3>
+            <div class="contact-info-grid">
+                <div class="contact-info-item"><strong>Telefon:</strong> 03 67 66 / 8 78 44</div>
+                <div class="contact-info-item"><strong>Telefax:</strong> 03 22 2 / 43 89 06 1</div>
+                <div class="contact-info-item"><strong>E-Mail:</strong> <a href="mailto:info@foerster-sandstrahlarbeiten.de">info@foerster-sandstrahlarbeiten.de</a></div>
+            </div>
+        </div>
+
+        <div class="legal-block">
+            <h3>Inhaber</h3>
+            <p>Herr Rico Förster</p>
+            <p>Rechtsform: Einzelunternehmen</p>
+        </div>
+    </div>
+
+    <!-- HAFTUNGSAUSSCHLUSS -->
+    <div class="legal-section" id="haftung">
+        <h2 class="legal-section-title">Haftungsausschluss (Disclaimer)</h2>
+
+        <div class="legal-block">
+            <h3>Haftung für Inhalte</h3>
+            <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+            <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3>Haftung für Links</h3>
+            <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+            <p>Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3>Urheberrecht</h3>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+            <p>Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+        </div>
+    </div>
+
+    <!-- DATENSCHUTZ -->
+    <div class="legal-section" id="datenschutz">
+        <h2 class="legal-section-title">Datenschutzerklärung</h2>
+
+        <div class="legal-block">
+            <h3>Datenschutz</h3>
+            <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.</p>
+            <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+            <p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3>Datenschutzerklärung für die Nutzung von Facebook-Plugins (Like-Button)</h3>
+            <p>Auf unseren Seiten sind Plugins des sozialen Netzwerks Facebook (Facebook Inc., 1601 Willow Road, Menlo Park, California, 94025, USA) integriert. Die Facebook-Plugins erkennen Sie an dem Facebook-Logo oder dem „Like-Button" („Gefällt mir") auf unserer Seite.</p>
+            <p>Wenn Sie unsere Seiten besuchen, wird über das Plugin eine direkte Verbindung zwischen Ihrem Browser und dem Facebook-Server hergestellt. Facebook erhält dadurch die Information, dass Sie mit Ihrer IP-Adresse unsere Seite besucht haben. Wenn Sie den Facebook „Like-Button" anklicken während Sie in Ihrem Facebook-Account eingeloggt sind, können Sie die Inhalte unserer Seiten auf Ihrem Facebook-Profil verlinken. Dadurch kann Facebook den Besuch unserer Seiten Ihrem Benutzerkonto zuordnen.</p>
+            <p>Wir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Facebook erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Facebook unter <a href="https://de-de.facebook.com/policy.php" target="_blank" rel="noopener">de-de.facebook.com/policy.php</a>.</p>
+            <p>Wenn Sie nicht wünschen, dass Facebook den Besuch unserer Seiten Ihrem Facebook-Nutzerkonto zuordnen kann, loggen Sie sich bitte aus Ihrem Facebook-Benutzerkonto aus.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3>Datenschutzerklärung für die Nutzung von Google Analytics</h3>
+            <p>Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. („Google"). Google Analytics verwendet sog. „Cookies", Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.</p>
+            <p>Im Falle der Aktivierung der IP-Anonymisierung auf dieser Webseite wird Ihre IP-Adresse von Google jedoch innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt.</p>
+            <p>Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen.</p>
+            <p>Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3>Datenschutzerklärung für die Nutzung von Google AdSense</h3>
+            <p>Diese Website benutzt Google AdSense, einen Dienst zum Einbinden von Werbeanzeigen der Google Inc. („Google"). Google AdSense verwendet sog. „Cookies", Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website ermöglicht. Google AdSense verwendet auch so genannte Web Beacons (unsichtbare Grafiken). Durch diese Web Beacons können Informationen wie der Besucherverkehr auf diesen Seiten ausgewertet werden.</p>
+            <p>Die durch Cookies und Web Beacons erzeugten Informationen über die Benutzung dieser Website (einschließlich Ihrer IP-Adresse) und Auslieferung von Werbeformaten werden an einen Server von Google in den USA übertragen und dort gespeichert. Diese Informationen können von Google an Vertragspartner von Google weiter gegeben werden. Google wird Ihre IP-Adresse jedoch nicht mit anderen von Ihnen gespeicherten Daten zusammenführen.</p>
+            <p>Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihrer Browser Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website voll umfänglich nutzen können. Durch die Nutzung dieser Website erklären Sie sich mit der Bearbeitung der über Sie erhobenen Daten durch Google in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3>Datenschutzerklärung für die Nutzung von Google +1</h3>
+            <p>Mithilfe der Google +1-Schaltfläche können Sie Informationen weltweit veröffentlichen. Über die Google +1-Schaltfläche erhalten Sie und andere Nutzer personalisierte Inhalte von Google und unseren Partnern. Google speichert sowohl die Information, dass Sie für einen Inhalt +1 gegeben haben, als auch Informationen über die Seite, die Sie beim Klicken auf +1 angesehen haben.</p>
+            <p>Ihre +1 können als Hinweise zusammen mit Ihrem Profilnamen und Ihrem Foto in Google-Diensten, wie etwa in Suchergebnissen oder in Ihrem Google-Profil, oder an anderen Stellen auf Websites und Anzeigen im Internet eingeblendet werden.</p>
+            <p>Um die Google +1-Schaltfläche verwenden zu können, benötigen Sie ein weltweit sichtbares, öffentliches Google-Profil, das zumindest den für das Profil gewählten Namen enthalten muss. Dieser Name wird in allen Google-Diensten verwendet.</p>
+        </div>
+
+        <div class="legal-block">
+            <h3>Datenschutzerklärung für die Nutzung von Twitter</h3>
+            <p>Auf unseren Seiten sind Funktionen des Dienstes Twitter eingebunden. Diese Funktionen werden angeboten durch die Twitter Inc., 1355 Market St, Suite 900, San Francisco, CA 94103, USA.</p>
+            <p>Durch das Benutzen von Twitter und der Funktion „Re-Tweet" werden die von Ihnen besuchten Webseiten mit Ihrem Twitter-Account verknüpft und anderen Nutzern bekannt gegeben. Dabei werden auch Daten an Twitter übertragen.</p>
+            <p>Wir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Twitter erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Twitter unter <a href="https://twitter.com/privacy" target="_blank" rel="noopener">twitter.com/privacy</a>.</p>
+            <p>Ihre Datenschutzeinstellungen bei Twitter können Sie in den Konto-Einstellungen unter <a href="https://twitter.com/account/settings" target="_blank" rel="noopener">twitter.com/account/settings</a> ändern.</p>
+        </div>
+
+        <div class="legal-block" style="background: var(--gray-50);">
+            <p style="font-size: 0.82rem; color: var(--gray-400);">
+                Quellverweis: Disclaimer von <a href="https://www.e-recht24.de" target="_blank" rel="noopener">eRecht24</a>, dem Portal zum Internetrecht von Rechtsanwalt Sören Siebert.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <span>&copy; 2015 – 2026 Förster Sandstrahlarbeiten</span>
+        <div class="footer-links">
+            <a href="index.html">Startseite</a>
+            <a href="impressum.html">Impressum & Datenschutz</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // Highlight active section in legal nav
+    const legalNav = document.querySelectorAll('.legal-nav a');
+    const legalSections = document.querySelectorAll('.legal-section');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY + 200;
+        legalSections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            const link = document.querySelector(`.legal-nav a[href="#${id}"]`);
+            if (link) {
+                if (scrollY >= top && scrollY < top + height) {
+                    legalNav.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
