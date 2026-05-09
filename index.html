@@ -1404,38 +1404,55 @@
 
 <script>
     // ── GALLERY DATA ──
-    const BASE = 'https://www.foerster-sandstrahlarbeiten.de/picture-gallery';
+    //const BASE = 'https://www.foerster-sandstrahlarbeiten.de/picture-gallery';
+    const BASE = './pictures';
     const galleryPairs = [
-        {id:'01', a:'01a.JPG', b:'01b.JPG', label:'Moped Rahmen'},
-        {id:'02', a:'02a.JPG', b:'02b.JPG', label:'Schutzbleche'},
-        // {id:'03', a:'03a.JPG', b:'03b.JPG', label:'Tür / Rahmen'},
-        {id:'04', a:'04a.JPG', b:'04b.JPG', label:'Moped Teile'},
-        {id:'05', a:'05a.JPG', b:'05b.JPG', label:'Blechteile'},
-        {id:'06', a:'06a.JPG', b:'06b.JPG', label:'Moped Teile'},
-        {id:'07', a:'07a.JPG', b:'07b.JPG', label:'Motor Teile'},
-        //{id:'08', a:'08a.JPG', b:'08b.JPG', label:'Karosserieteil'},
-        {id:'09', a:'09a.JPG', b:'09b.JPG', label:'Vergaser'},
-        {id:'10', a:'10a.JPG', b:'10b.JPG', label:'Simson Motor'},
-        {id:'11', a:'11a.JPG', b:'11b.JPG', label:'Kommode'},
-        {id:'12', a:'12a.JPG', b:'12b.JPG', label:'Schrankteil'},
-        {id:'13', a:'13a.JPG', b:'13b.JPG', label:'Ofenplatte 1'},
-        {id:'14', a:'14a.JPG', b:'14b.JPG', label:'Ofenplatte 2'},
-        {id:'15', a:'15a.jpg', b:'15b.jpg', label:'Kommoden Schubfach'},
-        //{id:'16', a:'16a.jpg', b:'16b.jpg', label:'Metallteil'},
-        {id:'17', a:'17a.jpg', b:'17b.jpg', label:'alte Waage'},
-        {id:'18', a:'18a.jpg', b:'18b.jpg', label:'Gussteil aus Ofen'},
-        {id:'19', a:'19a.jpg', b:'19b.jpg', label:'Ofentür'},
-        //{id:'20', a:'20a.jpg', b:'20b.jpg', label:'Metallteil'},
-        {id:'21', a:'21a.jpg', b:'21b.jpg', label:'Rahmen'},
-        {id:'22', a:'22a.jpg', b:'22b.jpg', label:'Mopedteile'},
-        {id:'23', a:'23a.jpg', b:'23b.jpg', label:'Alufelge'},
-        {id:'24', a:'24a.jpg', b:'24b.jpg', label:'Smoker'},
-        {id:'25', a:'25a.jpg', b:'25b.jpg', label:'alter Pflug'},
-        {id:'26', a:'26a.jpg', b:'26b.jpg', label:'Treppen Schwimmbad'},
-        {id:'27', a:'27a.jpg', b:'27b.jpg', label:'Alufelge'},
+        {id:'01', a:'MopedRahmen-v.jpg', b:'MopedRahmen-n.jpg', label:'Moped Rahmen'},
+        {id:'02', a:'Schutzbleche-v.jpg', b:'Schutzbleche-n.jpg', label:'Schutzbleche'},
+        {id:'03', a:'MopedTeile1-v.jpg', b:'MopedTeile1-n.jpg', label:'Moped Teile'},
+        {id:'04', a:'Blechteile-v.jpg', b:'Blechteile-n.jpg', label:'Blechteile'},
+        {id:'05', a:'MopedTeile2-v.jpg', b:'MopedTeile2-n.jpg', label:'Moped Teile'},
+        {id:'06', a:'MotorTeile-v.jpg', b:'MotorTeile-n.jpg', label:'Motor Teile'},
+        {id:'07', a:'Vergaser-v.jpg', b:'Vergaser-n.jpg', label:'Vergaser'},
+        {id:'08', a:'SimsonMotor1-v.jpg', b:'SimsonMotor1-n.jpg', label:'Simson Motor'},
+        {id:'09', a:'SimsonMotor2-v.jpg', b:'SimsonMotor2-n.jpg', label:'Simson Motor'},
+        {id:'10', a:'Kommode-v.jpg', b:'Kommode-n.jpg', label:'Kommode'},
+        {id:'11', a:'Schrankteil-v.jpg', b:'Schrankteil-n.jpg', label:'Schrankteil'},
+        {id:'12', a:'Schranktuer1-v.jpg', b:'Schranktuer1-n.jpg', label:'Schranktür'},
+        {id:'13', a:'Schranktuer2-v.jpg', b:'Schranktuer2-n.jpg', label:'Schranktür'},
+        {id:'14', a:'Ofenplatte1-v.jpg', b:'Ofenplatte1-n.jpg', label:'Ofenplatte 1'},
+        {id:'15', a:'Ofenplatte2-v.jpg', b:'Ofenplatte2-n.jpg', label:'Ofenplatte 2'},
+        {id:'16', a:'KommodenSchubfach-v.jpg', b:'KommodenSchubfach-n.jpg', label:'Kommoden Schubfach'},
+        {id:'17', a:'alteWaage1-v.jpg', b:'alteWaage1-n.jpg', label:'alte Waage'},
+        {id:'18', a:'alteWaage2-v.jpg', b:'alteWaage2-n.jpg', label:'alte Waage'},
+        {id:'19', a:'GussteilausOfen-v.jpg', b:'GussteilausOfen-n.jpg', label:'Gussteil aus Ofen'},
+        {id:'20', a:'Ofentuer-v.jpg', b:'Ofentuer-n.jpg', label:'Ofentür'},
+        {id:'21', a:'Rahmen1-v.jpg', b:'Rahmen1-n.jpg', label:'Rahmen'},
+        {id:'22', a:'Mopedteile-v.jpg', b:'Mopedteile-n.jpg', label:'Mopedteile'},
+        {id:'23', a:'Alufelge1-v.jpg', b:'Alufelge1-n.jpg', label:'Alufelge'},
+        {id:'24', a:'Alufelge2-v.jpg', b:'Alufelge2-v.jpg', label:'Alufelge'},
+        {id:'25', a:'Alufelge3-v.jpg', b:'Alufelge3-v.jpg', label:'Alufelge'},
+        {id:'26', a:'Alufelge4-v.jpg', b:'Alufelge4-v.jpg', label:'Alufelge'},
+        {id:'27', a:'Smoker-v.jpg', b:'Smoker-n.jpg', label:'Smoker'},
+        {id:'28', a:'alterPflug-v.jpg', b:'alterPflug-n.jpg', label:'alter Pflug'},
+        {id:'29', a:'Treppen Schwimmbad-v.jpg', b:'Treppen Schwimmbad-n.jpg', label:'Treppen Schwimmbad'},
+        {id:'30', a:'Balkongelaender-v.jpg', b:'Balkongelaender-n.jpg', label:'Balkongeländer'},
+        {id:'31', a:'Haustuerschild-v.jpg', b:'Haustuerschild-n.jpg', label:'Haustuerschild'},
+        {id:'32', a:'Raeumschild-Fendt-v.jpg', b:'Raeumschild-Fendt-n.jpg', label:'Räumschild Fendt'},
+        {id:'33', a:'Motorblock-v.jpg', b:'Motorblock-n.jpg', label:'Motorblock'},
+        {id:'34', a:'Riffelblech-v.jpg', b:'Riffelblech-n.jpg', label:'Riffelblech'},
+        {id:'35', a:'Mulde-v.jpg', b:'Mulde-n.jpg', label:'Mulde'},
+        {id:'36', a:'Kuechenschrank-v.jpg', b:'Kuechenschrank-n.jpg', label:'Küchenschrank'},
+        {id:'37', a:'Minionfigur-v.jpg', b:'Minionfigur-n.jpg', label:'Minionfigur'},
+        {id:'38', a:'Rahmen2-v.jpg', b:'Rahmen2-n.jpg', label:'Rahmen'},
+        {id:'39', a:'Roehre-v.jpg', b:'Roehre-n.jpg', label:'Roehre'},
+        {id:'40', a:'Holzstuhl1-v.jpg', b:'Holzstuhl1-n.jpg', label:'Holzstuhl'},
+        {id:'41', a:'Holzstuhl2-v.jpg', b:'Holzstuhl2-n.jpg', label:'Holzstuhl'},
+        {id:'42', a:'Holzstuhl3-v.jpg', b:'Holzstuhl3-n.jpg', label:'Holzstuhl'},
+        {id:'43', a:'Heizkoerper-v.jpg', b:'Heizkoerper-n.jpg', label:'Heizkoerper'}
     ];
 
-    let visibleCount = 9;
+    let visibleCount = 16;
     const allLightboxImages = [];
 
     function renderGallery() {
@@ -1445,8 +1462,8 @@
 
         const toShow = galleryPairs.slice(0, visibleCount);
         toShow.forEach((pair, idx) => {
-            const fullA = `${BASE}/pics_1000/${pair.a}`;
-            const fullB = `${BASE}/pics_1000/${pair.b}`;
+            const fullA = `${BASE}/${pair.a}`;
+            const fullB = `${BASE}/${pair.b}`;
             allLightboxImages.push(fullA, fullB);
 
             const card = document.createElement('div');
@@ -1480,7 +1497,7 @@
     }
 
     function showMoreImages() {
-        visibleCount = Math.min(visibleCount + 9, galleryPairs.length);
+        visibleCount = Math.min(visibleCount + 16, galleryPairs.length);
         renderGallery();
     }
 
